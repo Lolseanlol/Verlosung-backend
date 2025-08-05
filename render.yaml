@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: verlosung-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn server:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    autoDeploy: true
