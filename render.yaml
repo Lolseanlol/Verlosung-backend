@@ -2,9 +2,10 @@ services:
   - type: web
     name: verlosung-backend
     env: python
-    buildCommand: ""
-    startCommand: gunicorn server:app
+    repo: https://github.com/Lolseanlol/Verlosung-backend
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
     envVars:
-      - key: FLASK_ENV
-        value: production
-    autoDeploy: true
+      - key: MONGO_URL
+        sync: false
